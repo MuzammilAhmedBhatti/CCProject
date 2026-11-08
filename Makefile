@@ -26,10 +26,12 @@ compiler: $(PARSER) $(LEXER)
 	$(CXX) $(CXXFLAGS) -DMODE_COMPILER -o $(BUILD)/kitelang-compiler $(PARSER) $(LEXER)
 
 test: all
-	./build/kitelang-interpreter examples/insertion_sort.kite
+	./build/kitelang-interpreter examples/insertion_sort.kite > build/interpreter.out
+	diff -u tests/expected_insertion_sort.txt build/interpreter.out
 	./build/kitelang-compiler examples/insertion_sort.kite -o build/insertion.ll
 	clang build/insertion.ll -o build/insertion
-	./build/insertion
+	./build/insertion > build/compiler.out
+	diff -u tests/expected_insertion_sort.txt build/compiler.out
 
 clean:
 	rm -rf $(BUILD)

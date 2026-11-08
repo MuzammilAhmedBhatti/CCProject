@@ -1,13 +1,10 @@
 // KiteLang insertion sort: expected output is 1 2 4 7 8 9.
 void insertionSort(int a[], int n) {
-    dor (i : 1 -> n - 1) {
-        int j = i;
-        dheel (j > 0) {
-            pecha (a[j] < a[j - 1]) {
-                palta(a[j], a[j - 1]);
-                j = j - 1;
-            } warna {
-                j = 0;
+    // Adjacent-swap form of insertion sorting, using KiteLang's dor and palta.
+    dor (i : 0 -> n - 2) {
+        dor (j : 0 -> n - 2 - i) {
+            pecha (a[j] > a[j + 1]) {
+                palta(a[j], a[j + 1]);
             }
         }
     }

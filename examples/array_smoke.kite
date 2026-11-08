@@ -1,0 +1,7 @@
+int main() {
+    int data[6] = {9, 4, 7, 2, 8, 1};
+    dor (i : 0 -> 5) {
+        print(data[i]);
+    }
+    return 0;
+}
