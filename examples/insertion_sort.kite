@@ -1,0 +1,23 @@
+// KiteLang insertion sort: expected output is 1 2 4 7 8 9.
+void insertionSort(int a[], int n) {
+    dor (i : 1 -> n - 1) {
+        int j = i;
+        dheel (j > 0) {
+            pecha (a[j] < a[j - 1]) {
+                palta(a[j], a[j - 1]);
+                j = j - 1;
+            } warna {
+                j = 0;
+            }
+        }
+    }
+}
+
+int main() {
+    int data[6] = {9, 4, 7, 2, 8, 1};
+    insertionSort(data, 6);
+    dor (i : 0 -> 5) {
+        print(data[i]);
+    }
+    return 0;
+}
